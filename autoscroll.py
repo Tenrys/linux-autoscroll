@@ -126,7 +126,7 @@ class Autoscroll:
     def enter_scroll_mode(self, x, y):
         if self.CLEAR_CLIPBOARD:
             # subprocess.run(["xsel", "-c"])
-            os.system("printf '' | xclip -selection clipboard")
+            os.system("printf '' | xclip")
         self.icon.pos = (x, y)
         self.direction = 0
         self.interval = 0.5
