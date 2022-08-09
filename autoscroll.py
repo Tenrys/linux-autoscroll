@@ -69,7 +69,7 @@ class Autoscroll:
         # modify this to change the size (in px) of the area below and above the starting point where scrolling is paused
         self.DEAD_AREA = 24
         # modify this to change the time you have to hold BUTTON_START for in order to enter the scroll mode
-        self.TRIGGER_DELAY = 0.25
+        self.TRIGGER_DELAY = 0.125
         # set this to True if you want the clipboard to be cleared before entering the scroll mode
         # applicable only if you are using Button.middle for BUTTON_START or BUTTON_STOP
         # requires xclip
