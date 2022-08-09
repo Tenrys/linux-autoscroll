@@ -60,9 +60,9 @@ By default the scrolling begins when the mouse pointer is 30 px below or above t
 
 `TRIGGER_DELAY` is the time `BUTTON_START` has to be held down for in order to enter the scroll mode. The default value of this constant is 0, meaning that the scroll mode is entered immediately after pressing `BUTTON_START`. Modifying `TRIGGER_DELAY` is a good idea if you have the middle mouse button assigned to `BUTTON_START`. For instance, if you set `TRIGGER_DELAY` to 0.5, you will be able to click the middle mouse button as usual, but after holding it for 0.5 sec you will enter the scroll mode. I would not recommend setting this constant to a value less than 0.5 (except for 0) - the timer is not that precise and might interpret clicks as holds.
 
-If your `BUTTON_START` or `BUTTON_STOP` is the middle mouse button, consider setting `CLEAR_CLIPBOARD` to `True` so as not to paste anything accidentally from your clipboard when entering or exiting the scroll mode. Note that you have to have `xsel` installed before letting `CLEAR_CLIPBOARD = True`:
+If your `BUTTON_START` or `BUTTON_STOP` is the middle mouse button, consider setting `CLEAR_CLIPBOARD` to `True` so as not to paste anything accidentally from your clipboard when entering or exiting the scroll mode. Note that you have to have `xclip` installed before letting `CLEAR_CLIPBOARD = True`:
 ```
-sudo apt install xsel
+sudo apt install xclip
 ```
 
 If you want to autoscroll only while `BUTTON_START` is held down, set `HOLD_MODE` to `True`.

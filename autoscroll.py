@@ -1,3 +1,5 @@
+#!/home/marceau/linux-autoscroll/venv/bin/python3
+
 from functools import partial
 from queue import Queue
 from pynput.mouse import Button, Controller, Listener
@@ -8,7 +10,8 @@ from PyQt5.QtCore import Qt, pyqtSignal
 from PyQt5.QtSvg import QSvgWidget
 from PyQt5.QtGui import QPixmap
 from pathlib import Path
-import subprocess
+# import subprocess
+import os
 import sys
 
 
@@ -64,15 +67,15 @@ class Autoscroll:
         # modify this to change the button used for exiting the scroll mode
         self.BUTTON_STOP = Button.middle
         # modify this to change the size (in px) of the area below and above the starting point where scrolling is paused
-        self.DEAD_AREA = 30
+        self.DEAD_AREA = 24
         # modify this to change the time you have to hold BUTTON_START for in order to enter the scroll mode
-        self.TRIGGER_DELAY = 0
+        self.TRIGGER_DELAY = 0.25
         # set this to True if you want the clipboard to be cleared before entering the scroll mode
         # applicable only if you are using Button.middle for BUTTON_START or BUTTON_STOP
-        # requires xsel
-        self.CLEAR_CLIPBOARD = False
+        # requires xclip
+        self.CLEAR_CLIPBOARD = True
         # set this to True if you want to autoscroll only while BUTTON_START is held down
-        self.HOLD_MODE = False
+        self.HOLD_MODE = True
         # modify this to change the scroll mode icon
         # supported formats: svg, png, jpg, jpeg, gif, bmp, pbm, pgm, ppm, xbm, xpm
         # the path MUST be absolute
@@ -122,7 +125,8 @@ class Autoscroll:
 
     def enter_scroll_mode(self, x, y):
         if self.CLEAR_CLIPBOARD:
-            subprocess.run(["xsel", "-c"])
+            # subprocess.run(["xsel", "-c"])
+            os.system("printf '' | xclip -selection clipboard")
         self.icon.pos = (x, y)
         self.direction = 0
         self.interval = 0.5
