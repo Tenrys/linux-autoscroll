@@ -61,7 +61,7 @@ class AutoscrollIconRaster(QLabel):
 class Autoscroll:
     def __init__(self):
         # modify this to adjust the speed of scrolling
-        self.DELAY = 5
+        self.DELAY = 2.5
         # modify this to change the button used for entering the scroll mode
         self.BUTTON_START = Button.middle
         # modify this to change the button used for exiting the scroll mode
